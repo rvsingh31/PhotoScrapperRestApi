@@ -54,7 +54,7 @@ new CronJob('00 15 17 * * *', function() {
 
 
 
-app.listen(5000,function(){
+app.listen(process.env.PORT  || 5000,function(){
 	console.log("Server running...");
 });
 
