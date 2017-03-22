@@ -8,6 +8,9 @@ var CronJob = require('cron').CronJob;
 var storedata=require('./storedata');
 var cors=require('cors');
 
+app.get('/',function(req,res){
+	res.send("Hi THERE!!");
+});
 app.use(cors());
 
 new CronJob('00 15 17 * * *', function() {
