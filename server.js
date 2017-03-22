@@ -8,6 +8,8 @@ var CronJob = require('cron').CronJob;
 var storedata=require('./storedata');
 var cors=require('cors');
 
+var port = process.env.PORT || 5000;
+
 app.use(cors());
 
 new CronJob('00 15 17 * * *', function() {
@@ -51,7 +53,7 @@ new CronJob('00 15 17 * * *', function() {
 
 
 
-app.listen(5000,function(){
+app.listen(port,function(){
 	console.log("Server running...");
 });
 
