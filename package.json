@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "description": "A PhotoScraper",
   "main": "server.js",
-  "engines":{
-	"node":"6.9.5",
-	"npm":"4.2.0"
+  "engines": {
+    "node": "6.9.5",
+    "npm": "4.2.0"
   },
   "scripts": {
-	"start":"node server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cheerio": "^0.22.0",
+    "cors": "^2.8.1",
     "cron": "^1.2.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.1",
