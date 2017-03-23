@@ -103,7 +103,7 @@ app.get('/scrape',function(req,res){
 					}, function () {
 						console.log("done");
 						console.log("DATE: "+today);
-						data_to_store={img:today+fileExt,date:today,title:title,auth:author};
+						data_to_store={img:today+"."+fileExt,date:today,title:title,auth:author};
 						storedata(JSON.stringify(data_to_store),req,res);
 					});
 			
