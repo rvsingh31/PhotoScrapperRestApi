@@ -29,10 +29,8 @@ function store(data)
 		
 		new_reg.save(function (err) {
 			if (err) {console.error(err);}
-			else{console.log("stored...");}
+			else{res.seng('Today\'s Image Scraped!!');}
 		});
-		mongoose.connection.close();
-		
 }
 
 module.exports=store;

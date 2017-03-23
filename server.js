@@ -41,7 +41,8 @@ new CronJob('00 15 17 * * *', function() {
 						console.log("error", error);
 					}, function () {
 						console.log("done");
-						data_to_store={img:source,date:d,title:title,auth:author};
+						console.log(d);
+						data_to_store={img:d+fileExt,date:d,title:title,auth:author};
 						storedata(JSON.stringify(data_to_store));
 					});
 					
@@ -79,11 +80,21 @@ app.get('/scrape',function(req,res){
 				author=$(" .single > .details > .title > .author ").html();
 
 				console.log("SOURCE: "+source+ ", date :"+date+ ", title : "+title+ " , author : "+author);
-				now=new Date();
-				d=now.getDay()+'-'+now.getMonth()+'-'+now.getFullYear();
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth()+1; //January is 0!
+
+				var yyyy = today.getFullYear();
+				if(dd<10){
+					dd='0'+dd;
+				} 
+				if(mm<10){
+					mm='0'+mm;
+				} 
+				var today = dd+'-'+mm+'-'+yyyy;
+				console.log(today);
 			
-			
-				download(source, "images/"+d+"."+fileExt, function (state) {
+				download(source, "images/"+today+"."+fileExt, function (state) {
 					console.log("progress", state);
 					}, function (response) {
 						console.log("status code", response.statusCode);
@@ -91,11 +102,11 @@ app.get('/scrape',function(req,res){
 						console.log("error", error);
 					}, function () {
 						console.log("done");
-						data_to_store={img:source,date:d,title:title,auth:author};
+						console.log("DATE: "+today);
+						data_to_store={img:source,date:today,title:title,auth:author};
 						storedata(JSON.stringify(data_to_store));
 					});
-					
-		
+			
 			}
 			
 		});
