@@ -2,7 +2,7 @@ var mongoose=require('mongoose');
 
 var photos=require('./photosobj');
 
-function store(data)
+function store(data,req,res)
 {
 	mongoose.connect('mongodb://rvsingh:3112@ds137100.mlab.com:37100/photos');
 		var db = mongoose.connection;
@@ -29,7 +29,7 @@ function store(data)
 		
 		new_reg.save(function (err) {
 			if (err) {console.error(err);}
-			else{res.seng('Today\'s Image Scraped!!');}
+			else{res.send('Today\'s Image Scraped!!');}
 		});
 }
 
