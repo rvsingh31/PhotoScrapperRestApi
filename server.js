@@ -7,10 +7,7 @@ var download=require('./download');
 var CronJob = require('cron').CronJob;
 var storedata=require('./storedata');
 var cors=require('cors');
-
-app.get('/',function(req,res){
-	res.send("Hi THERE!!");
-});
+var getTodayPhoto=require('./getTodayPhoto');
 app.use(cors());
 
 new CronJob('00 15 17 * * *', function() {
@@ -59,8 +56,10 @@ app.listen(process.env.PORT  || 5000,function(){
 	console.log("Server running...");
 });
 
+
+
 app.get('/',function(req,res){	
-console.log("in");	
+		getTodayPhoto(req,res);
 });
 
 
