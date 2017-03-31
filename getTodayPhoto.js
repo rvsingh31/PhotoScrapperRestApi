@@ -31,7 +31,7 @@ function get(req,res)
 				}
 				else
 				{
-					res.send(doc);
+					res.send(JSON.stringify(doc));
 				}
 			});
 }
