@@ -7,6 +7,7 @@ var download=require('./download');
 var CronJob = require('cron').CronJob;
 var storedata=require('./storedata');
 var cors=require('cors');
+var getGallery=require('./getGallery');
 var getTodayPhoto=require('./getTodayPhoto');
 app.use(cors());
 
@@ -62,6 +63,10 @@ app.get('/',function(req,res){
 		getTodayPhoto(req,res);
 });
 
+app.get('/gallery',function(req,res){
+	
+	getGallery(req,res);
+});
 
 app.get('/scrape',function(req,res){
 	
