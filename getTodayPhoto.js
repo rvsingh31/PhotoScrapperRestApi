@@ -31,7 +31,7 @@ function get(req,res)
 				}
 				else
 				{
-					res.send(doc.img);
+					res.send(doc);
 				}
 			});
 }
