@@ -57,11 +57,15 @@ app.listen(process.env.PORT  || 5000,function(){
 	console.log("Server running...");
 });
 
-
-
 app.get('/',function(req,res){	
 		getTodayPhoto(req,res);
 });
+
+
+app.get('/today',function(req,res){	
+		getTodayPhoto(req,res);
+});
+
 
 app.get('/gallery',function(req,res){
 	
