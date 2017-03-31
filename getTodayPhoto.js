@@ -10,7 +10,7 @@ function get(req,res)
 			db.once('open', function() {
 				console.log("connected..");
 		});
-	
+				var t_data=[];
 				var today = new Date();
 				var dd = today.getDate();
 				var mm = today.getMonth()+1; //January is 0!
@@ -31,7 +31,9 @@ function get(req,res)
 				}
 				else
 				{
-					res.send(JSON.stringify(doc));
+					t_data.push(doc);
+					t_data.push(doc);
+					res.send(JSON.stringify(t_data));
 				}
 			});
 }
