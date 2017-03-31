@@ -30,7 +30,7 @@ new CronJob('00 15 17 * * *', function() {
 				d=now.getDay()+'-'+now.getMonth()+'-'+now.getFullYear();
 			
 			
-				download(source, "images/"+d+"."+fileExt, function (state) {
+				download(source, "/images/"+d+"."+fileExt, function (state) {
 					console.log("progress", state);
 					}, function (response) {
 						console.log("status code", response.statusCode);
