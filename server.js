@@ -10,6 +10,7 @@ var cors=require('cors');
 var getGallery=require('./getGallery');
 var getTodayPhoto=require('./getTodayPhoto');
 app.use(cors());
+app.use(express.static(__dirname+'/images'));
 
 new CronJob('00 15 17 * * *', function() {
 	
